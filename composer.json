@@ -1,0 +1,16 @@
+{
+	"name": "hugohenrique/hugohenrique.github.io",
+	"description": "My page",
+	"require": {
+		"sculpin/sculpin": "^2.0"
+	},
+	"authors": [
+		{
+			"name": "Hugo Henrique",
+			"email": "contato@hugohenrique.com.br"
+		}
+	],
+	"autoload": {
+		"psr-4": {"HugoHenrique\\": "app/src"}
+	}
+}
