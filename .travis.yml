@@ -1,0 +1,32 @@
+# .travis.yml
+language: php
+
+php:
+  - hhvm
+
+sudo: false
+
+cache:
+  directories:
+    - $HOME/.composer/cache
+
+before_install:
+  - echo -e "machine github.com\n  login $GH_TOKEN" >> ~/.netrc
+
+before_script:
+  - gem install sass
+  - composer install --prefer-dist
+
+branches:
+  only:
+    - source
+
+script:
+  - sh build.sh
+
+after_success:
+  - if [ "$TRAVIS_PULL_REQUEST" = "false" ]; then sh publish.sh; fi
+
+env:
+  global:
+    secure: ""
